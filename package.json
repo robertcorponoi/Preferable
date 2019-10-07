@@ -1,0 +1,51 @@
+{
+  "name": "preferable",
+  "version": "0.1.1",
+  "description": "Manage preferences for your website with an easy to use API.",
+  "main": "Preferable.js",
+  "module": "Preferable.js",
+  "scripts": {
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch",
+    "build": "npm run build:types && npm run build:js",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline",
+    "bundle": "rollup -c",
+    "bundle:watch": "rollup -c --watch",
+    "test": "ava"
+  },
+  "ava": {
+    "require": [
+      "./test/_setup-browser-env.js"
+    ]
+  },
+  "keywords": [
+    "pref",
+    "prefs",
+    "preference",
+    "preferences",
+    "website",
+    "app",
+    "user",
+    "localStorage",
+    "web"
+  ],
+  "author": "Robert Corponoi",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.6.2",
+    "@babel/core": "^7.6.2",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-numeric-separator": "^7.2.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "@babel/preset-typescript": "^7.6.0",
+    "ava": "^2.4.0",
+    "browser-env": "^3.2.6",
+    "rollup": "^1.23.1",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "typescript": "^3.6.3"
+  }
+}
