@@ -8,11 +8,11 @@ Preferable lets you manage preferences for your website with an easy to use API.
 
 <div align="center">
 
-[![NPM version](https://img.shields.io/npm/v/Preferable.svg?style=flat)](https://www.npmjs.com/package/Preferable)
-[![Known Vulnerabilities](https://snyk.io/test/github/robertcorponoi/Preferable/badge.svg)](https://snyk.io/test/github/robertcorponoi/Preferable)
-[![NPM downloads](https://img.shields.io/npm/dm/Preferable.svg?style=flat)](https://www.npmjs.com/package/Preferable)
-<a href="https://badge.fury.io/js/Preferable"><img src="https://img.shields.io/github/issues/robertcorponoi/Preferable.svg" alt="issues" height="18"></a>
-<a href="https://badge.fury.io/js/Preferable"><img src="https://img.shields.io/github/license/robertcorponoi/Preferable.svg" alt="license" height="18"></a>
+[![NPM version](https://img.shields.io/npm/v/preferable.svg?style=flat)](https://www.npmjs.com/package/preferable)
+[![Known Vulnerabilities](https://snyk.io/test/github/robertcorponoi/preferable/badge.svg)](https://snyk.io/test/github/robertcorponoi/preferable)
+[![NPM downloads](https://img.shields.io/npm/dm/preferable.svg?style=flat)](https://www.npmjs.com/package/preferable)
+<a href="https://badge.fury.io/js/preferable"><img src="https://img.shields.io/github/issues/robertcorponoi/preferable.svg" alt="issues" height="18"></a>
+<a href="https://badge.fury.io/js/preferable"><img src="https://img.shields.io/github/license/robertcorponoi/preferable.svg" alt="license" height="18"></a>
 [![Gitter](https://badges.gitter.im/gitterHQ/gitter.svg)](https://gitter.im/robertcorponoi)
 
 </div>
@@ -39,6 +39,10 @@ $ npm install preferable
 Preferable is an ES6 module so to use it, you have to first import it and then create a new instance of it like so:
 
 ```js
+// Webpack
+import Preferable from 'preferable';
+
+// Browser
 import Preferable from './path/to/Preferable.js';
 
 const preferable = new Preferable('myapp');
