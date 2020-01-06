@@ -7,7 +7,6 @@ import PrefStorage from './interfaces/PrefStorage';
  * Manage preferences for your website with an easy to use API.
  */
 module.exports = class Prefs {
-
   /**
    * The namespace is the key used to store the preferences in the localStorage Object.
    * 
@@ -41,11 +40,9 @@ module.exports = class Prefs {
    * @param {string} [namespace='prefs'] The namespace of the preferences in the localStorage. 
    */
   constructor(namespace: string = 'prefs') {
-
     this._namespace =namespace;
 
     this._boot();
-
   }
 
   /**
@@ -53,11 +50,7 @@ module.exports = class Prefs {
    * 
    * @returns {string} 
    */
-  get namespace(): string {
-
-    return this._namespace;
-
-  }
+  get namespace(): string { return this._namespace; }
 
   /**
    * When the module is initialized, we want to grab the localStorage Object if it exists and save it locally
@@ -68,7 +61,6 @@ module.exports = class Prefs {
    * @private 
    */
   private _boot() {
-
     const prefs: (string | null) = this._storage.getItem(this._namespace);
 
     if (!prefs) return;
@@ -78,21 +70,16 @@ module.exports = class Prefs {
     const prefsJSON = JSON.parse(prefs);
 
     for (const pref in prefsJSON) {
-
       const p: Pref = prefsJSON[pref];
 
       switch (p.type) {
-
         case 'toggle':
           if (p.data.status === true && !document.querySelector(p.data.element).classList.contains(p.data.classes[0])) {
             this.toggle(p.name);
           }
           break;
-
       }
-
     }
-
   }
 
   /**
@@ -100,7 +87,7 @@ module.exports = class Prefs {
    * 
    * Affecting multiple elements with a toggle is possible by assinging them all the same name.
    * 
-   * @param {string} name Used to call this toggle after it's created.
+   * @param {string} name A unique key used to call this preference after it's created.
    * @param {string} element The  identifier to use to query for the element.
    * @param {string|Array<string>} classes One or more classes to toggle for the element defined above.
    * 
@@ -111,7 +98,6 @@ module.exports = class Prefs {
    * prefs.setToggle('dark-mode', '#body', 'theme--dark');
    */
   setToggle(name: string, element: string, classes: (string | Array<string>)) {
-
     if (!name) throw new Error('A name for the preference must be provided');
 
     if (!Array.isArray(classes)) classes = [classes];
@@ -126,7 +112,6 @@ module.exports = class Prefs {
     this._prefs[pref.name] = pref;
 
     this._sync();
-
   }
 
   /**
@@ -143,7 +128,6 @@ module.exports = class Prefs {
    * prefs.toggle('dark-mode');
    */
   toggle(name: string) {
-
     if (!name) throw new Error('The name of the preference to toggle is required');
 
     const pref: Pref = this._prefs[name];
@@ -157,7 +141,6 @@ module.exports = class Prefs {
     pref.data.status = !pref.data.status;
 
     this._sync();
-
   }
 
   /**
@@ -168,11 +151,9 @@ module.exports = class Prefs {
    * prefs.clear();
    */
   clear() {
-
     this._prefs = {};
 
     this._storage.removeItem(this._namespace);
-
   }
 
   /**
@@ -181,9 +162,6 @@ module.exports = class Prefs {
    * @private
    */
   private _sync() {
-
     this._storage.setItem(this._namespace, JSON.stringify(this._prefs));
-
   }
-
 }

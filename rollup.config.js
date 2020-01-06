@@ -8,24 +8,20 @@ import resolve from 'rollup-plugin-node-resolve';
 const extensions = ['.js', '.jsx', '.ts', '.tsx'];
 
 export default {
-
   input: './src/index.ts',
 
   external: [],
 
   plugins: [
-
     resolve({ extensions }),
 
     commonjs(),
 
     babel({ extensions, include: ['src/**/*'] }),
-
   ],
 
   output: [{
     file: pkg.module,
     format: 'esm',
   }]
-  
 };

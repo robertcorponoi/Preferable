@@ -130,7 +130,7 @@ function () {
      * 
      * Affecting multiple elements with a toggle is possible by assinging them all the same name.
      * 
-     * @param {string} name Used to call this toggle after it's created.
+     * @param {string} name A unique key used to call this preference after it's created.
      * @param {string} element The  identifier to use to query for the element.
      * @param {string|Array<string>} classes One or more classes to toggle for the element defined above.
      * 

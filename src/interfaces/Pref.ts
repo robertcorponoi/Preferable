@@ -4,7 +4,6 @@
  * Describes the structure of a single preference added to Prefs.
  */
 export default interface Pref {
-
   /**
    * The name of this preference.
    * 
@@ -32,5 +31,4 @@ export default interface Pref {
    * @property {*}
    */
   data: any;
-
 }
